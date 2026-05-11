@@ -1,0 +1,26 @@
+# === Secretos y Configuración (¡CRÍTICO!) ===
+.env
+*.env
+env/
+venv/
+.venv/
+
+# === Python (Basura de ejecución) ===
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# === Frontend (React/Vite) ===
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# === OS (Basura del sistema) ===
+.DS_Store
+Thumbs.db
+
+# === Logs ===
+*.log
+npm-debug.log*

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/robot.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="MarketVision - Análisis Predictivo de Mercados con AWS Serverless" />
+    <title>MarketVision | MokesoftIA</title>
+
+    <!-- 🔧 Script de protección contra errores de WebSocket/HMR de Vite -->
+    <script>
+      // Forzar desactivación del WebSocket de Vite en producción
+      if (window.__vite_plugin_react_preamble_installed) {
+        window.__vite_plugin_react_preamble_installed = false;
+      }
+      window.__vite_hmr = false;
+
+      // Prevenir el error de listener asíncrono (extensiones del navegador)
+      window.addEventListener('error', function(e) {
+        if (e.message && (e.message.includes('WebSocket') || e.message.includes('message channel closed'))) {
+          e.stopPropagation();
+          return false;
+        }
+      }, true);
+
+      // Silenciar promesas no manejadas relacionadas con HMR
+      window.addEventListener('unhandledrejection', function(e) {
+        if (e.reason && e.reason.message && e.reason.message.includes('WebSocket')) {
+          e.preventDefault();
+          return false;
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
